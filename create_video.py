@@ -107,6 +107,6 @@ def create_video_from_clips(video_list: list[tuple[str, str]], title: str) -> st
                 video.unlink()
     else:
         video_dir.mkdir(parents=True, exist_ok=True)
-    file_name = video_dir / f"{title}.mp4"
-    final_clip.write_videofile(str(file_name), fps=60, logger=StreamlitProgressBarLogger)
+    file_name = str(video_dir / f"{title}.mp4")
+    final_clip.write_videofile(file_name, fps=60, logger=StreamlitProgressBarLogger)
     return file_name
